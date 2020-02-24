@@ -1,0 +1,64 @@
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-credential-initializer-vdjfj[0m
+{"level":"warn","ts":1582510036.313444,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582510036.3147988,"logger":"fallback-logger","caller":"creds-init/main.go:40","msg":"Credentials initialized."}
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-working-dir-initializer-5hzf4[0m
+{"level":"warn","ts":1582510036.9604783,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: open /var/run/ko/HEAD: no such file or directory"}
+{"level":"info","ts":1582510036.9618437,"logger":"fallback-logger","caller":"bash/main.go:64","msg":"Successfully executed command \"sh -c mkdir -p /workspace/source\"; output "}
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-place-tools[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-git-source-cb-kubecd-environment-pr-165-94-jt94k-6zs7x[0m
+{"level":"warn","ts":1582510043.137933,"logger":"fallback-logger","caller":"logging/config.go:69","msg":"Fetch GitHub commit ID from kodata failed: \"ref: refs/heads/0.8.0-**-support-backwards-incompats\" is not a valid GitHub commit ID"}
+{"level":"info","ts":1582510044.3522186,"logger":"fallback-logger","caller":"git/git.go:103","msg":"Successfully cloned https://github.com/cb-kubecd/environment-pr-165-94-boot-gke-dev.git @ master in path /workspace/source"}
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1,10:30f351f848cbaad81321ece2c76279c5b324a45c
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 30f351f848cbaad81321ece2c76279c5b324a45c: 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1:
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin 30f351f848cbaad81321ece2c76279c5b324a45c: 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1:
+DEBUG: ran git fetch origin 30f351f848cbaad81321ece2c76279c5b324a45c: 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git rev-parse --is-shallow-repository
+DEBUG: Unshallowed git repo in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1
+DEBUG: ran git reset --hard 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 30f351f848cbaad81321ece2c76279c5b324a45c
+DEBUG: ran git merge 30f351f848cbaad81321ece2c76279c5b324a45c in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e 10509f8bbdc5844fdb5dacd1d0d1b015a438c0b1..HEAD
+Merged SHA 30f351f848cbaad81321ece2c76279c5b324a45c with commit message 'Delete app **-app-ui' into base branch master
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-verify-parameters[0m
+
+Showing logs for build [32mcb-kubecd-environment-pr-165-94-jt94k-1[0m stage [32mpr-checks[0m and container [32mstep-lint-env-helm[0m
+rm -rf charts
+rm -rf requirements.lock
+helm init --client-only
+Creating /builder/home/.helm 
+Creating /builder/home/.helm/repository 
+Creating /builder/home/.helm/repository/cache 
+Creating /builder/home/.helm/repository/local 
+Creating /builder/home/.helm/plugins 
+Creating /builder/home/.helm/starters 
+Creating /builder/home/.helm/cache/archive 
+Creating /builder/home/.helm/repository/repositories.yaml 
+Adding stable repo with URL: https://kubernetes-charts.storage.googleapis.com 
+Adding local repo with URL: http://127.0.0.1:8879/charts 
+$HELM_HOME has been configured at /builder/home/.helm.
+Not installing Tiller due to 'client-only' flag having been set
+helm repo add jenkins-x https://storage.googleapis.com/chartmuseum.jenkins-x.io
+"jenkins-x" has been added to your repositories
+helm repo add bitnami https://charts.bitnami.com/bitnami
+"bitnami" has been added to your repositories
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+"stable" has been added to your repositories
+** step helm build --boot --provider-values-dir=../kubeProviders
+WARNING: could not find a git repository in the directory .: No git conf dir found
+error: failed to create version resolver: : failed to git fetch origin 90f4814efd82b15e5572b880b06d0c58b6c6ce92 for repo: https://github.com/cloudbees/cloudbees-jenkins-x-versions.git in dir /builder/home/.**/jenkins-x-versions: failed to run 'git fetch origin 90f4814efd82b15e5572b880b06d0c58b6c6ce92' command in directory '/builder/home/.**/jenkins-x-versions', output: 'error: Server does not allow request for unadvertised object 90f4814efd82b15e5572b880b06d0c58b6c6ce92'
+make: *** [build] Error 1
+[31m
+Pipeline failed on stage 'pr-checks' : container 'step-lint-env-helm'. The execution of the pipeline has stopped.[0m
